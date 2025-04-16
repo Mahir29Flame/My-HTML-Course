@@ -6,6 +6,7 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.python3
     # pkgs.go
     # pkgs.python311
     # pkgs.python311Packages.pip
@@ -21,29 +22,29 @@
       # "vscodevim.vim"
     ];
 
-    # Enable previews
+    # Enable previews in the IDX web UI.
     previews = {
       enable = true;
       previews = {
-        # web = {
-        #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-        #   # and show it in IDX's web preview panel
-        #   command = ["npm" "run" "dev"];
-        #   manager = "web";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = "$PORT";
-        #   };
-        # };
+        web = {
+          # The command to run to start the preview.
+          command = ["python3" "-m" "http.server" "$PORT" ];
+          manager = "web";
+          # The port to use for the preview.
+          # By default, IDX will automatically assign a port.
+          # port = 8080;
+          # Additional environment variables to set for the preview.
+          env = {
+            PORT = "$PORT";
+          };
+        };
       };
     };
-
+    
     # Workspace lifecycle hooks
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
       };
       # Runs when the workspace is (re)started
       onStart = {
