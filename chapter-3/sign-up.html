@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Sign Up/In</h1>
-    <form action="/submit.php">
+    <form action="/done.html">
         <div>
             <label for="username"><b>Username:</b></label>
             <input type="text" id="username" name="username" required>
@@ -54,7 +54,14 @@
             <label for="confirm-password"><b>Confirm Password:</b></label>
             <input type="password" id="confirm-password" name="confirm-password" required>
         </div>
-
+        <div>
+            <label for="terms" required>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#"><i><u>no</u></i>Terms and Conditions</a>
+                </label>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
 
     </form>
 
